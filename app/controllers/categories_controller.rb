@@ -22,6 +22,7 @@ class CategoriesController < ApplicationController
 #     redirect_to company_jobs_path(company)
 #   end
 #
+
 #   def edit
 #     @company = Company.find(params[:id])
 #   end
@@ -47,7 +48,7 @@ class CategoriesController < ApplicationController
 #
 #
   private
-#
+
   def category_params
     params.require(:category).permit(:title)
   end
