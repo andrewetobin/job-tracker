@@ -16,37 +16,31 @@ class CategoriesController < ApplicationController
       render :new
     end
   end
-#
-#   def show
-#     company = Company.find(params[:id])
-#     redirect_to company_jobs_path(company)
-#   end
-#
 
-#   def edit
-#     @company = Company.find(params[:id])
-#   end
-#
-#   def update
-#     @company = Company.find(params[:id])
-#     @company.update(company_params)
-#     if @company.save
-#       flash[:success] = "#{@company.name} updated!"
-#       redirect_to company_path(@company)
-#     else
-#       render :edit
-#     end
-#   end
-#
-#   def destroy
-#     company = Company.find(params[:id])
-#     company.destroy
-#
-#     flash[:success] = "#{company.name} was successfully deleted!"
-#     redirect_to companies_path
-#   end
-#
-#
+  def edit
+    @category = Category.find(params[:id])
+  end
+
+  def update
+    @category = Category.find(params[:id])
+    @category.update(category_params)
+    if @category.save
+      flash[:success] = "#{@category.title} updated!"
+      redirect_to categories_path(@category)
+    else
+      render :edit
+    end
+  end
+
+  def destroy
+    category = Category.find(params[:id])
+    category.destroy
+
+    flash[:success] = "#{category.title} was successfully deleted!"
+    redirect_to categories_path
+  end
+
+
   private
 
   def category_params
