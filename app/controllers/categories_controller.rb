@@ -3,22 +3,18 @@ class CategoriesController < ApplicationController
     @categories = Category.all
   end
 
-  # def new
-  #   @company = Company.new
-  # end
+  def new
+    @category = Category.new
+  end
 
-#   def create
-#     @company = Company.new(company_params)
-#     if @company.save
-#       flash[:success] = "#{@company.name} added!"
-#       redirect_to company_path(@company)
-#     else
-#       render :new
-#     end
-#   end
-#
-  def show
-    @category = Category.find(params[:id])
+  def create
+    @category = Category.new(category_params)
+    if @category.save
+      flash[:success] = "#{@category.title} added!"
+      redirect_to categories_path(@category)
+    else
+      render :new
+    end
   end
 
   def edit
@@ -50,4 +46,5 @@ class CategoriesController < ApplicationController
   def category_params
     params.require(:category).permit(:title)
   end
+
 end
