@@ -1,4 +1,5 @@
 class CompaniesController < ApplicationController
+  before_action :set_company, only: [:show, :update, :edit, :destroy]
   def index
     @companies = Company.all
   end
@@ -18,7 +19,8 @@ class CompaniesController < ApplicationController
   end
 
   def show
-    @company = Company.find(params[:id])
+    @contact = @company.contacts.new
+    @contacts = @company.contacts.all
   end
 
   def edit
@@ -49,5 +51,9 @@ class CompaniesController < ApplicationController
 
   def company_params
     params.require(:company).permit(:name, :city)
+  end
+
+  def set_company
+    @company = Company.find(params[:id])
   end
 end

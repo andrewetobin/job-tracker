@@ -6,9 +6,9 @@ describe "company page" do
 
     visit company_path(company)
 
-    fill_in :full_name, with: 'Jeff Coffin'
-    fill_in :position, with: 'Music Tech'
-    fill_in :email, with: 'jcoffin@gmail.com'
+    fill_in :contact_full_name, with: 'Jeff Coffin'
+    fill_in :contact_position, with: 'Music Tech'
+    fill_in :contact_email, with: 'jcoffin@gmail.com'
     click_on 'Create Contact'
 
     expect(current_path).to eq(company_path(company))

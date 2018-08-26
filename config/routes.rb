@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
   resources :companies do
+    resources :contacts, only: [:create, :destroy]
     resources :jobs
   end
   resources :jobs, only: [:index]
