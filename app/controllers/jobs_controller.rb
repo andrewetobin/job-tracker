@@ -1,21 +1,25 @@
 class JobsController < ApplicationController
   def index
-    @company = Company.find(params[:company_id])
-    @jobs = @company.jobs
+    if params[:sort] == 'location'
+      @jobs = Job.order(:city)
+    elsif params[:location]
+      @jobs = Job.where(city: params[:location])
+    else
+      @jobs = Job.all
+    end
   end
 
   def new
-    @company = Company.find(params[:company_id])
     @job = Job.new()
   end
 
   def create
-    @company = Company.find(params[:company_id])
-    @job = @company.jobs.new(job_params)
+    @job = Job.new(job_params)
     if @job.save
-      flash[:success] = "You created #{@job.title} at #{@company.name}"
-      redirect_to company_job_path(@company, @job)
+      flash[:success] = "You created #{@job.title} "
+      redirect_to job_path(@job)
     else
+      flash[:success] = "failure"
       render :new
     end
   end
@@ -41,6 +45,6 @@ class JobsController < ApplicationController
   private
 
   def job_params
-    params.require(:job).permit(:title, :description, :level_of_interest, :city, :category_id)
+    params.require(:job).permit(:title, :description, :level_of_interest, :city, :company_id, :category_id)
   end
 end
