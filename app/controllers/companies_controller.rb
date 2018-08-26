@@ -46,6 +46,11 @@ class CompaniesController < ApplicationController
     redirect_to companies_path
   end
 
+  def jobs_index
+    @company = Company.find(params[:id])
+    @jobs = @company.jobs
+  end
+
 
   private
 
