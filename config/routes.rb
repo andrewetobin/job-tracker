@@ -7,7 +7,10 @@ Rails.application.routes.draw do
   resources :jobs do
     resources :comments
   end
+<<<<<<< HEAD
 
+=======
+>>>>>>> 8ae172ab572a0fd773495d005271c32ab86e676b
   resources :jobs, only: [:index]
   resources :categories
   # The priority is based upon order of creation: first created -> highest priority.
