@@ -1,5 +1,6 @@
 Title: <%= @job.title %>
 <br>
+<p><%= link_to "Delete", job_path(@job), method: :delete %></p>
 
 Description: <%= @job.description %>
 <br>
@@ -13,6 +14,7 @@ City: <%= @job.city %>
 Company: <%= link_to @job.company.name, company_path(@job.company) %>
 
 Notes: <%= render partial: "comment-form" %>
+
 
 <% @comments.each do |comment| %>
   <ul>
