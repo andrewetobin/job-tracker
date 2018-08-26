@@ -39,5 +39,12 @@ describe Contact do
        expect(contact).to be_valid
      end
    end
+   describe "relationships" do
+     it "belongs to a company" do
+       contact = Contact.new(full_name: "Joseph Davis", position: "Recruiter", email: "abc@gmail.com")
+
+       expect(contact).to respond_to(:company)
+     end
+   end
  end
 end
