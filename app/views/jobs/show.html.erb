@@ -1,6 +1,8 @@
 Title: <%= @job.title %>
 <br>
 <p><%= link_to "Delete", job_path(@job), method: :delete %></p>
+<p><%= link_to "Edit", edit_job_path(@job)%></p>
+
 
 Description: <%= @job.description %>
 <br>
