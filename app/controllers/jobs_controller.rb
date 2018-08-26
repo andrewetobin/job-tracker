@@ -1,7 +1,6 @@
 class JobsController < ApplicationController
   def index
-    @company = Company.find(params[:company_id])
-    @jobs = @company.jobs
+    @jobs = Job.all
   end
 
   def new
@@ -35,12 +34,14 @@ class JobsController < ApplicationController
   end
 
   def destroy
-    # implement on your own!
+    job = Job.find(params[:id])
+    job.destroy
+    redirect_to jobs_path
   end
 
   private
 
   def job_params
-    params.require(:job).permit(:title, :description, :level_of_interest, :city, :category_id)
+    params.require(:job).permit(:title, :description, :level_of_interest, :city, :company_id, :category_id)
   end
 end
