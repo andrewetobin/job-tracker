@@ -1,7 +1,9 @@
-<h1>All Jobs</h1>
+<h1> <%= @header %></h1>
 
 <% @jobs.each do |job| %>
-  <ul><%= link_to job.title, job_path(job) %> at <%= job.company.name %></ul>
-  <!-- <p><%= link_to "Delete", job_path(job), method: :delete %></p>
-  <p><%= link_to "Edit", edit_job_path(job)%></p> -->
-<% end %>
+    <p><%= link_to "#{job.title} at #{job.company.name}", job_path(job) %></p>
+    <li><%= job.city %></li>
+    <ul>
+      <li>Level of interest: <%= job.level_of_interest %></li>
+    </ul>
+  <% end %><br/>

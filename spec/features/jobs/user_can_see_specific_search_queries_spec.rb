@@ -28,14 +28,14 @@ describe 'user visits /jobs' do
     job_3 = company.jobs.create!(title: 'Beer Guy', level_of_interest: 73, city: 'Chicago', category_id: category.id)
 
     visit jobs_path(sort: 'Denver')
-
+    save_and_open_page
     expect(page).to have_content(job_1.title)
     expect(page).to have_content(job_2.title)
     expect(page).to have_content(job_3.title)
 
-    expect(job_1.title).to appear_before(job_3.title)
-    expect(job_3.title).to appear_before(job_2.title)
-    expect(job_2.title).to appear_after(job_3.title)
+    expect(job_1.city).to appear_before(job_2.city)
+    expect(job_3.city).to appear_before(job_2.city)
+    expect(job_2.city).to_not appear_before(job_1.city)
   end
 
 end
