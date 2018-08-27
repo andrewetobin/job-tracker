@@ -19,7 +19,7 @@ describe "User edits an existing company" do
 
     click_button "Update Job"
 
-    expect(current_path).to eq("/jobs/#{Job.last.id}")
+    expect(current_path).to eq(job_path(job_1))
     expect(page).to have_content("ESPN")
     expect(page).to have_content("Developer")
     expect(page).to have_content("80")

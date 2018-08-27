@@ -17,9 +17,4 @@ describe "company page" do
     expect(page).to have_content('jcoffin@gmail.com')
   end
 
-
-
-
-
-
 end

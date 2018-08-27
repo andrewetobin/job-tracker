@@ -15,11 +15,12 @@ class JobsController < ApplicationController
 
   def create
     @job = Job.new(job_params)
+    @company = @job.company
     if @job.save
-      flash[:success] = "You created #{@job.title} "
+      flash[:success] = "You created #{@job.title} for #{@company.name}"
       redirect_to job_path(@job)
     else
-      flash[:success] = "failure"
+      flash[:success] = "Job creation unsuccessful"
       render :new
     end
   end
@@ -36,9 +37,10 @@ class JobsController < ApplicationController
 
   def update
     @job = Job.find(params[:id])
+    @company = @job.company
     @job.update(job_params)
     if @job.save
-      flash[:success] = "#{@job.title} updated!"
+      flash[:success] = "#{@job.title} for #{@company.name} updated!"
       redirect_to job_path(@job)
     else
       render :edit
@@ -46,8 +48,9 @@ class JobsController < ApplicationController
   end
 
   def destroy
-    Comment.where(job_id: params[:id]).destroy_all
-    Job.destroy(params[:id])
+    job = Job.find(params[:id])
+    job.comments.destroy_all
+    job.destroy
     redirect_to jobs_path
   end
 
