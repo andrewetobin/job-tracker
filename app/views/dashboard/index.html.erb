@@ -7,6 +7,6 @@
 <% end %>
 
 <h3>Jobs By Location</h3>
-<% @count_by_location.each do |location, count| %>
-<p><%= link_to location, dashboard_index_path %> Jobs   <%= count %> Jobs </p>
+<% @count_by_location.each do |city, count| %>
+<p><%= link_to city, jobs_path(location: city) %> Jobs   <%= count %> Jobs </p>
 <% end %>
