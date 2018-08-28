@@ -3,14 +3,13 @@
 
   <a href="/categories/new">Create New Category</a>
 
-  <ul>
     <% @categories.each do |category| %>
-    <li class=category_<%= category.id %>>
+    <p>
       <%= link_to category.title, category_path(category) %>:
       <%= category.jobs.count %> Jobs
       <%= link_to "Edit", edit_category_path(category) %>
       <%= link_to "Delete", category_path(category), method: "delete" %>
-    </li>
+    </p>
     <% end %>
   </ul>
 </section>
