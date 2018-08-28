@@ -28,14 +28,29 @@ describe 'user visits /jobs' do
     job_3 = company.jobs.create!(title: 'Beer Guy', level_of_interest: 73, city: 'Chicago', category_id: category.id)
 
     visit jobs_path(sort: 'Denver')
-    save_and_open_page
+
     expect(page).to have_content(job_1.title)
     expect(page).to have_content(job_2.title)
     expect(page).to have_content(job_3.title)
 
-    expect(job_1.city).to appear_before(job_2.city)
-    expect(job_3.city).to appear_before(job_2.city)
-    expect(job_2.city).to_not appear_before(job_1.city)
+    expect(job_1.title).to appear_before(job_2.title)
+    expect(job_3.title).to appear_before(job_2.title)
+    expect(job_2.title).to_not appear_before(job_1.title)
+  end
+  it "sorts by level of interest" do
+    company = Company.create!(name: 'Colorado Rockies')
+    category = Category.create!(title: 'sports')
+    job_1 = company.jobs.create!(title: 'Developer', level_of_interest: 90, city: 'Denver', category_id: category.id)
+    job_2 = company.jobs.create!(title: 'Radio Commentator', level_of_interest: 95, city: 'New York City', category_id: category.id)
+    job_3 = company.jobs.create!(title: 'Beer Guy', level_of_interest: 80, city: 'Chicago', category_id: category.id)
+
+    visit jobs_path(sort: 'interest')
+save_and_open_page
+    expect(job_2.title).to appear_before(job_1.title)
+    expect(job_1.title).to appear_before(job_3.title)
+    expect(job_3.title).to_not appear_before(job_1.title)
+
+
   end
 
 end
