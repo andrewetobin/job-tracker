@@ -1,12 +1,13 @@
 <h1><strong><%= @category.title %></strong> Jobs</h1>
 
-<p><a href="/jobs/new">Add New Job</a></p>
+<%= link_to "Add New Job", new_job_path %></a></p>
 
 <% @category.jobs.each do |job| %>
-  Title: <ul><%= job.title %></ul>
-  Company: <ul><%= job.company.name %></ul>
-  City: <ul><%= job.city %></ul>
+  Title: <ul><%= link_to job.title, job_path(job) %></ul>
+  Company: <ul><%= link_to job.company.name, company_path(job.company) %></ul>
+  City: <ul><%= link_to job.city, jobs_path(location: "#{job.city}") %></ul>
   Interest: <ul><%= job.level_of_interest %></ul>
+  <!-- sort by level of interest on the same page? -->
   <%= link_to "Edit", edit_company_path(job) %>
   <%= link_to "Delete", company_path(job), method: "delete" %>
 <% end %>
