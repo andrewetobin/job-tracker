@@ -63,4 +63,31 @@ describe Job do
       expect(job).to respond_to(:comments)
     end
   end
+
+  describe 'class methods' do
+    before(:each) do
+      category_1 = Category.create(title: 'Engineer')
+      category_2 = Category.create(title: 'Devolpment')
+      company_1 = Company.create(name: "Turing")
+      company_2 = Company.create(name: "Whitewave")
+      @job_1 = company_1.jobs.create(title: "Developer", level_of_interest: 40, city: "Denver", category_id: category_1.id)
+      @job_2 = company_1.jobs.create(title: "QA", level_of_interest: 50, city: "San Fransisco", category_id: category_2.id)
+      @job_3 = company_1.jobs.create(title: "Research", level_of_interest: 10, city: "San Fransisco", category_id: category_2.id)
+      @job_4 = company_2.jobs.create(title: "Dev Ops", level_of_interest: 40, city: "Denver", category_id: category_2.id)
+      @job_5 = company_2.jobs.create(title: "Research", level_of_interest: 30, city: "New York", category_id: category_1.id)
+      @job_6 = company_2.jobs.create(title: "QA", level_of_interest: 50, city: "Denver", category_id: category_1.id)
+    end
+    describe 'count_by_level_of_interest method' do
+      it 'should have count of jobs by level_of_interest' do
+
+        expect(Job.count_by_level_of_interest).to eq({50=>2, 40=>2, 30=>1, 10=>1})
+      end
+    end
+    describe 'count_by_location method' do
+      it 'should have count of jobs by location' do
+
+        expect(Job.count_by_location).to eq({'Denver'=>3, 'San Fransisco'=>2, 'New York'=>1})
+      end
+    end
+  end
 end
