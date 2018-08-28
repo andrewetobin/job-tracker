@@ -1,0 +1,50 @@
+/* #5B5B5B dark gray
+#7D7C7A light gray
+#C9C19F vanilla
+#EDF7D2 light yellow
+#EDF7B5 yellow */
+
+header {
+  /* background: #FAF0E6; */
+  /* background: #364958;
+  color: #c9e4ca;
+  font-family: 'Monoton', cursive; */
+  height: 50px;
+  /* padding: 0px 25px; */
+}
+
+header h1 {
+  position:absolute;
+  left:0;
+  right:0;
+  text-align: center;
+  font-family: 'Stoke';
+  /* text vertical-align: center; */
+  background: #5B5B5B;
+  color: white;
+  height: 40px;
+  width: 100%;
+  padding: 12px 0px 0px;
+  /* margin-top: 18px; */
+}
+nav {
+  background: #7D7C7A;
+  /* padding: 5%; */
+  /* height: 70px; */
+}
+nav li {
+  font-family: 'Stoke';
+  display: inline-block;
+  padding: 60px 120px 20px;
+}
+
+nav li a {
+  text-decoration: none;
+  color: white;
+}
+
+nav li:hover {
+  background: #5B5B5B;
+  color: #7D7C7A;
+  cursor: pointer;
+}
