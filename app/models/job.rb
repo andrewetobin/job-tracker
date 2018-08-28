@@ -21,4 +21,8 @@ class Job < ApplicationRecord
     order(city: :desc).group(:city).count
   end
 
+  def self.location_params(params)
+    where(city: params[:location])
+  end
+
 end
