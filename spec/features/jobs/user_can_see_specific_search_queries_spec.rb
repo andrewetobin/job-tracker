@@ -45,7 +45,7 @@ describe 'user visits /jobs' do
     job_3 = company.jobs.create!(title: 'Beer Guy', level_of_interest: 80, city: 'Chicago', category_id: category.id)
 
     visit jobs_path(sort: 'interest')
-save_and_open_page
+
     expect(job_2.title).to appear_before(job_1.title)
     expect(job_1.title).to appear_before(job_3.title)
     expect(job_3.title).to_not appear_before(job_1.title)

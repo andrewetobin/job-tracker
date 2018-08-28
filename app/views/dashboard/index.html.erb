@@ -10,3 +10,8 @@
 <% @count_by_location.each do |location, count| %>
 <p><%= link_to location, dashboard_index_path %> Jobs   <%= count %> Jobs </p>
 <% end %>
+
+<h3>Top Companies by Interest</h3>
+<% @top_three_by_average_level_of_interest.each do |company| %>
+<p><%= company.name %>  has an average  <%= company.avg_level_of_interest %> rating </p>
+<% end %>
