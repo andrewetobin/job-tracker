@@ -1,20 +1,22 @@
-<%= form_for [@job] do |f| %>
-  <%= f.label :title %>
-  <%= f.text_field :title %>
+<section class="middle-section">
+  <%= form_for [@job] do |f| %>
+    <%= f.label :title %>
+    <%= f.text_field :title %>
 
-  <%= f.label :category_id %>
-  <%= f.collection_select(:category_id, Category.all, :id, :title) %>
-  <%= f.label :company_id %>
-  <%= f.collection_select(:company_id, Company.all, :id, :name) %>
+    <%= f.label :category_id %>
+    <%= f.collection_select(:category_id, Category.all, :id, :title) %>
+    <%= f.label :company_id %>
+    <%= f.collection_select(:company_id, Company.all, :id, :name) %>
 
-  <%= f.label :description %>
-  <%= f.text_field :description %>
+    <%= f.label :description %>
+    <%= f.text_field :description %>
 
-  <%= f.label :level_of_interest %>
-  <%= f.number_field :level_of_interest %>
+    <%= f.label :level_of_interest %>
+    <%= f.number_field :level_of_interest %>
 
-  <%= f.label :city %>
-  <%= f.text_field :city %>
+    <%= f.label :city %>
+    <%= f.text_field :city %>
 
-  <%= f.submit 'Update Job'%>
-<% end %>
+    <%= f.submit 'Update Job'%>
+  <% end %>
+</section>

@@ -1,12 +1,14 @@
-<h1><strong><%= @category.title %></strong> Jobs</h1>
+<section class="middle-section">
+  <h1><strong><%= @category.title %></strong> Jobs</h1>
 
-<p><a href="/jobs/new">Add New Job</a></p>
+  <p><a href="/jobs/new">Add New Job</a></p>
 
-<% @category.jobs.each do |job| %>
-  Title: <ul><%= job.title %></ul>
-  Company: <ul><%= job.company.name %></ul>
-  City: <ul><%= job.city %></ul>
-  Interest: <ul><%= job.level_of_interest %></ul>
-  <%= link_to "Edit", edit_company_path(job) %>
-  <%= link_to "Delete", company_path(job), method: "delete" %>
-<% end %>
+  <% @category.jobs.each do |job| %>
+    Title: <ul><%= job.title %></ul>
+    Company: <ul><%= job.company.name %></ul>
+    City: <ul><%= job.city %></ul>
+    Interest: <ul><%= job.level_of_interest %></ul>
+    <%= link_to "Edit", edit_company_path(job) %>
+    <%= link_to "Delete", company_path(job), method: "delete" %>
+  <% end %>
+</section>

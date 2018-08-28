@@ -1,3 +1,5 @@
+<section class="middle-section">
+
 All Jobs for <strong><%= @company.name %></strong>
 
 <% @company.jobs.each do |job| %>
@@ -25,3 +27,4 @@ All Jobs for <strong><%= @company.name %></strong>
         </ul>
         <%= link_to "Delete Contact", company_contact_path(contact.company, contact), method: 'delete' %>
     <% end %>
+</section>
