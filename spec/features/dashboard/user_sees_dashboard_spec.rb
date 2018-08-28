@@ -30,7 +30,7 @@ describe "User visits dashboard" do
     count = Job.count_by_location[@job_1.city]
 
     visit '/dashboard'
-save_and_open_page
+    
     expect(page).to have_content("#{@job_1.city} Jobs")
     expect(page).to have_content("#{count} Jobs")
     expect(page).to have_link(@job_1.city)
