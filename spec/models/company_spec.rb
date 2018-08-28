@@ -55,7 +55,7 @@ describe Company do
     describe 'top_three_by_average_level_of_interest method' do
       it 'should have top three companies ranked by average level of interest ' do
 
-        expect(Company.top_three_by_average_level_of_interest).to eq({"Turing"=>50, "ERS"=>40, "Whitewave"=>35})
+        expect(Company.top_three_by_average_level_of_interest).to eq([@company_1, @company_4, @company_2])
       end
     end
   end
