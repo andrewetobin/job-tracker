@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 describe 'user visits /jobs' do
-  xit 'user sees all jobs in specific city' do
+  it 'user sees all jobs in specific city' do
     company = Company.create!(name: 'Colorado Rockies')
     category = Category.create!(title: 'sports')
     job_1 = company.jobs.create!(title: 'Developer', level_of_interest: 74, city: 'Denver', category_id: category.id)
@@ -10,7 +10,7 @@ describe 'user visits /jobs' do
     job_4 = company.jobs.create!(title: 'Beer Guy', level_of_interest: 73, city: 'Chicago', category_id: category.id)
 
     visit jobs_path(location: 'Denver')
-
+save_and_open_page
     expect(page).to have_content(job_1.title)
     expect(page).to have_content(job_1.level_of_interest)
     expect(page).to have_content(job_1.city)
