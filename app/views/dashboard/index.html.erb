@@ -5,3 +5,8 @@
 <% @count_by_level_of_interest.each do |loi, count| %>
 <p><%= loi %> has <%= count %> Jobs</p>
 <% end %>
+
+<h3>Jobs By Location</h3>
+<% @count_by_location.each do |location, count| %>
+<p><%= link_to location, dashboard_index_path %> Jobs   <%= count %> Jobs </p>
+<% end %>
