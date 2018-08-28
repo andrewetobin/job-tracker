@@ -1,13 +1,18 @@
 class JobsController < ApplicationController
   def index
-    if params[:sort] == 'location'
-      @jobs = Job.order(:city)
-    elsif params[:location]
-      @jobs = Job.where(city: params[:location])
-    else
-      @jobs = Job.all
-    end
-  end
+   if params[:location]
+     @jobs = Job.location_params(params)
+     @header = "#{params[:location]} Jobs"
+   elsif params[:category]
+     @jobs = Job.category_params(params)
+     @header = "#{params[:category]} Jobs"
+   elsif params[:sort]
+     params_sort(params)
+   else
+     @jobs = Job.all
+     @header = "All Jobs"
+   end
+ end
 
   def new
     @job = Job.new()
@@ -56,7 +61,17 @@ class JobsController < ApplicationController
 
   private
 
-  def job_params
-    params.require(:job).permit(:title, :description, :level_of_interest, :city, :company_id, :category_id)
-  end
+    def job_params
+      params.require(:job).permit(:title, :description, :level_of_interest, :city, :company_id, :category_id)
+    end
+
+    def params_sort(params)
+      if params[:sort]=='interest'
+        @jobs = Job.sort_level_interest
+        @header = 'Jobs sorted by Level of Interest'
+      else params[:sort]=='location'
+        @jobs = Job.city_sort
+        @header = 'Jobs sorted by City'
+      end
+    end
 end

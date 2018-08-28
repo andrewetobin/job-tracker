@@ -5,6 +5,14 @@ class Job < ApplicationRecord
   has_many :comments
 
 
+  def self.sort_level_interest
+    order('level_of_interest DESC')
+  end
+
+  def self.city_sort
+    order('city ASC')
+  end
+
   def self.count_by_level_of_interest
     order(level_of_interest: :desc).group(:level_of_interest).count
   end
@@ -12,4 +20,5 @@ class Job < ApplicationRecord
   def self.count_by_location
     order(city: :desc).group(:city).count
   end
+
 end

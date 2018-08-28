@@ -42,6 +42,7 @@ group :development, :test do
   gem 'shoulda-matchers'
   gem 'pry'
   gem 'active_designer'
+  gem 'orderly'
 end
 
 group :development do
