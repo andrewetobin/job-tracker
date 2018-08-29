@@ -1,5 +1,4 @@
 class ContactsController < ApplicationController
-
   def create
     @company = Company.find(params[:company_id])
     @contact = @company.contacts.create(contact_params)
@@ -16,7 +15,7 @@ class ContactsController < ApplicationController
 
   private
 
-  def contact_params
-    params.require(:contact).permit(:full_name, :position, :email)
-  end
+    def contact_params
+      params.require(:contact).permit(:full_name, :position, :email)
+    end
 end
