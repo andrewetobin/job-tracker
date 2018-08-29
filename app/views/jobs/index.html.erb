@@ -1,9 +1,24 @@
 <section class="middle-section">
-  <h1> <%= @header %></h1>
+  <h3> <%= @header %></h3>
 
-  <% @jobs.each do |job| %>
-      <p><%= link_to "#{job.title} at #{job.company.name}", job_path(job) %></p>
-      <p><%= job.city %></p>
-        <p>Level of interest: <%= job.level_of_interest %></p>
-    <% end %><br/>
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th scope="col">Job</th>
+        <th scope="col">City</th>
+        <th scope="col">Level of Interest</th>
+        <th scope="col">email</th>
+      </tr>
+    </thead>
+    <% @jobs.each do |job| %>
+    <tbody>
+      <tr>
+        <th><%= link_to "#{job.title} at #{job.company.name}", job_path(job) %></th>
+        <td><%= job.city %></td>
+        <td><%= job.level_of_interest %></td>
+        <td>@mdo</td>
+      </tr>
+    </tbody>
+    <% end %>
+  </table>
 </section>
