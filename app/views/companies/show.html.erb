@@ -1,7 +1,9 @@
-All Jobs for <strong><%= @company.name %></strong>
+<section class="middle-section">
+
+<h3>All Jobs for <strong><%= @company.name %></strong></h3>
 
 <% @company.jobs.each do |job| %>
-  <ul><%= link_to job.title, job_path(job) %></ul>
+  <p><%= link_to job.title, job_path(job) %></p>
 <% end %>
 
 <h4>Create New Contact for <%= @company.name %></h4>
@@ -14,14 +16,29 @@ All Jobs for <strong><%= @company.name %></strong>
 <%= f.text_field :email %>
 <%= f.submit "Create Contact" %>
 <% end %>
+<br>
+<br>
+<br>
+<h1>Contacts for <%= @company.name %></h1>
 
-<h3>Contacts for <%= @company.name %></h3>
-
+  <table class="table table-sm">
+    <thead>
+      <tr>
+        <th scope="col">Name</th>
+        <th scope="col">Position</th>
+        <th scope="col">Email</th>
+        <th scope="col"></th>
+      </tr>
+    </thead>
     <% @contacts.each do |contact| %>
-        <h5><%= contact.full_name %></h5>
-        <ul>
-          <li>Position:<%= contact.position %></li>
-          <li>Email: <%= contact.email %></li>
-        </ul>
-        <%= link_to "Delete Contact", company_contact_path(contact.company, contact), method: 'delete' %>
-    <% end %>
+    <tbody>
+      <tr>
+        <th><%= contact.full_name %></th>
+        <td><%= contact.position %></td>
+        <td><%= contact.email %></td>
+        <td><%= link_to "Delete Contact", company_contact_path(contact.company, contact), method: 'delete' %></td>
+      <% end %>
+      </tr>
+    </tbody>
+  </table>
+</section>

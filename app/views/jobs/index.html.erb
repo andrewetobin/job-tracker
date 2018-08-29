@@ -1,11 +1,26 @@
-<h1> <%= @header %></h1>
+<section class="middle-section">
+  <h3> <%= @header %></h3>
 
-<h3><%= link_to "Create New Job", new_job_path %></h3>
+<h4><%= link_to "Create New Job", new_job_path %></h4>
 
-<% @jobs.each do |job| %>
-    <p><%= link_to "#{job.title} at #{job.company.name}", job_path(job) %></p>
-    <ul>
-    <li><%= link_to job.city, jobs_path(location: job.city) %></li>
-      <li>Level of interest: <%= job.level_of_interest %></li>
-    </ul>
-  <% end %><br/>
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th scope="col">Job</th>
+        <th scope="col">City</th>
+        <th scope="col">Level of Interest</th>
+        <th scope="col">email</th>
+      </tr>
+    </thead>
+    <% @jobs.each do |job| %>
+    <tbody>
+      <tr>
+        <th><%= link_to "#{job.title} at #{job.company.name}", job_path(job) %></th>
+        <td><%= link_to job.city, jobs_path(location: job.city) %></td>
+        <td><%= job.level_of_interest %></td>
+        <td>@mdo</td>
+      </tr>
+    </tbody>
+    <% end %>
+  </table>
+</section>

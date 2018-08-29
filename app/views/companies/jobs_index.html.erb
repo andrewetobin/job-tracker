@@ -1,6 +1,8 @@
-All Jobs for <strong><%= @company.name %></strong>
+<section class="middle-section">
+  All Jobs for <strong><%= @company.name %></strong>
 
-<% @jobs.each do |job| %>
-  <ul><%= link_to job.title, job_path(job) %> at <%= job.company.name %></ul>
-  <p><%= link_to "Delete", job_path(job), method: :delete %></p>
-<% end %>
+  <% @jobs.each do |job| %>
+    <ul><%= link_to job.title, job_path(job) %> at <%= job.company.name %></ul>
+    <p><%= link_to "Delete", job_path(job), method: :delete %></p>
+  <% end %>
+</section>

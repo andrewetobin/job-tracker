@@ -1,17 +1,29 @@
-<h1>Job Tracker</h1>
+<section class="middle-section">
+  <h4>Jobs By Interest</h4>
+  <% @count_by_level_of_interest.each do |loi, count| %>
+  <p><%= loi %> has <%= count %> Jobs</p>
+  <% end %>
 
+  <h4>Jobs By Location</h4>
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th scope="col">City</th>
+        <th scope="col">Job</th>
+      </tr>
+    </thead>
+      <% @count_by_location.each do |city, count| %>
+      <tbody>
+        <tr>
+          <td><%= link_to city, jobs_path(location: city) %></td>
+          <td><%= count %></td>
+        </tr>
+      </tbody>
+      <% end %>
+  </table>
 
-<h3>Jobs By Interest</h3>
-<% @count_by_level_of_interest.each do |loi, count| %>
-<p><%= loi %> has <%= count %> Jobs</p>
-<% end %>
-
-<h3>Jobs By Location</h3>
-<% @count_by_location.each do |city, count| %>
-<p><%= link_to city, jobs_path(location: city) %> Jobs   <%= count %> Jobs </p>
-<% end %>
-
-<h3>Top Companies by Interest</h3>
-<% @top_three_by_average_level_of_interest.each do |company| %>
-<p><%= company.name %>  has an average  <%= company.avg_level_of_interest %> rating </p>
-<% end %>
+  <h4>Top Companies by Interest</h4>
+  <% @top_three_by_average_level_of_interest.each do |company| %>
+  <p><%= company.name %>  has an average  <%= company.avg_level_of_interest %> rating </p>
+  <% end %>
+</section>

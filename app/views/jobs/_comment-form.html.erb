@@ -1,6 +1,8 @@
-<%= form_for [@job, @comment] do |f| %>
-  <%= f.label 'Notes:' %>
-  <%= f.text_area :body %>
+<section class="middle-section">
+  <%= form_for [@job, @comment] do |f| %>
+    <%= f.label 'Notes:' %>
+    <%= f.text_area :body %>
 
-  <%= f.submit %>
-<% end %>
+    <%= f.submit %>
+  <% end %>
+</section>

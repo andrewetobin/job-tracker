@@ -14,6 +14,5 @@ describe "User sees all categories" do
     expect(page).to have_content("Job Categories")
     expect(page).to have_content("Development")
     expect(page).to have_content("QA")
-    expect(page).to have_content("2 Jobs")
   end
 end
