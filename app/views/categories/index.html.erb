@@ -1,15 +1,30 @@
 <section class="middle-section">
   <h3>Job Categories</h3>
 
-  <a href="/categories/new">Create New Category</a>
+  <a class="create" href="/categories/new">Create New Category</a>
+  <br>
+  <br>
+  <br>
+  <table class="table table-borderless">
+    <thead>
+      <tr>
+        <th scope="col">Category</th>
+        <th scope="col">Job Count</th>
+        <th scope="col"></th>
+        <th scope="col"></th>
+      </tr>
+    </thead>
 
     <% @categories.each do |category| %>
-    <p>
-      <%= link_to category.title, category_path(category) %>:
-      <%= category.jobs.count %> Jobs
-      <%= link_to "Edit", edit_category_path(category) %>
-      <%= link_to "Delete", category_path(category), method: "delete" %>
-    </p>
-    <% end %>
-  </ul>
+    <tbody>
+      <tr>
+        <td><%= link_to category.title, category_path(category) %></td>
+        <td><%= category.jobs.count %></td>
+        <td><%= link_to "Edit", edit_category_path(category) %></td>
+        <td><%= link_to "Delete", category_path(category), method: "delete" %></td>
+      </tr>
+      <% end %>
+      </tr>
+    </tbody>
+  </table>
 </section>

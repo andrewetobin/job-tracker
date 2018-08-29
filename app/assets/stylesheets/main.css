@@ -48,9 +48,13 @@ nav li:hover {
   text-align: center;
   /* background: #C9C19F; */
 }
-.middle-section h3{
+.middle-section h3 {
   font-family: 'Stoke';
   font-size: 80px;
   padding: 10px 0px 30px;
   color: #61304B;
+}
+.create {
+  font-size: 20px;
+  padding: 0px 0px 40px;
 }
