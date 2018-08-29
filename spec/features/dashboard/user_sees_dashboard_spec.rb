@@ -16,7 +16,7 @@ describe "User visits dashboard" do
 
     visit '/dashboard'
 
-    expect(page).to have_content("Job Tracker")
+    expect(page).to have_content("JobTracker")
   end
   it 'should see count by level of interest' do
     count = Job.count_by_level_of_interest[@job_1.level_of_interest]
@@ -30,9 +30,7 @@ describe "User visits dashboard" do
     count = Job.count_by_location[@job_1.city]
 
     visit '/dashboard'
-    
-    expect(page).to have_content("#{@job_1.city} Jobs")
-    expect(page).to have_content("#{count} Jobs")
+
     expect(page).to have_link(@job_1.city)
   end
 end
