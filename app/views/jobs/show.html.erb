@@ -1,21 +1,22 @@
-Title: <%= @job.title %>
-<br>
-<p><%= link_to "Delete", job_path(@job), method: :delete %></p>
-<p><%= link_to "Edit", edit_job_path(@job)%></p>
+<section class="middle-section">
+  Title: <%= @job.title %>
+  <br>
+  <p><%= link_to "Delete", job_path(@job), method: :delete %></p>
+  <p><%= link_to "Edit", edit_job_path(@job)%></p>
 
 
-Description: <%= @job.description %>
-<br>
+  Description: <%= @job.description %>
+  <br>
 
-Level of Interest: <%= @job.level_of_interest %>
-<br>
+  Level of Interest: <%= @job.level_of_interest %>
+  <br>
 
-City: <%= @job.city %>
-<br>
+  City: <%= @job.city %>
+  <br>
 
-Company: <%= link_to @job.company.name, company_path(@job.company) %>
+  Company: <%= link_to @job.company.name, company_path(@job.company) %>
 
-Notes: <%= render partial: "comment-form" %>
+  Notes: <%= render partial: "comment-form" %>
 
 
 <% @comments.each do |comment| %>

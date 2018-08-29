@@ -1,0 +1,68 @@
+/* #5B5B5B dark gray
+#7D7C7A light gray
+#C9C19F vanilla
+#EDF7D2 light yellow
+#EDF7B5 yellow */
+
+header {
+  height: 50px;
+  /* padding: 0px 25px; */
+}
+
+header h1 {
+  position:absolute;
+  left:0;
+  right:0;
+  text-align: center;
+  font-family: 'Stoke';
+  font-weight: bold;
+  font-size: 50px;
+  background: #5B5B5B;
+  color: white;
+  height: 70px;
+  width: 100%;
+  padding: 12px 0px 0px;
+}
+nav {
+  background: #7D7C7A;
+  /* padding-bottom: 0px; */
+}
+nav li {
+  font-family: 'Stoke';
+  display: inline-block;
+  padding: 90px 120px 20px;
+}
+
+nav li a {
+  text-decoration: none;
+  color: white;
+}
+
+nav li:hover {
+  background: #5B5B5B;
+  color: #7D7C7A;
+  cursor: pointer;
+}
+.middle-section {
+  padding: 100px;
+  text-align: center;
+  /* background: #C9C19F; */
+}
+.middle-section h3 {
+  font-family: 'Stoke';
+  font-size: 50px;
+  padding: 10px 0px 30px;
+  color: #61304B;
+}
+.create {
+  font-size: 20px;
+  padding: 0px 0px 40px;
+}
+.middle-section p {
+
+  font-size: 20px;
+  padding: 0px 0px 30px;
+}
+.middle-section a {
+  color: #5B5B5B;
+}
