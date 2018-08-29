@@ -11,7 +11,8 @@
 
     <% @companies.each do |company| %>
     <tbody>
-      <tr>
+      <tr class=company_<%= company.id%>>
+        <td><%= link_to company.name, company_path(company) %></td>
         <td><%= link_to company.name, company_path(company) %></td>
         <td><%= link_to "Edit", edit_company_path(company) %></td>
         <td><%= link_to "Delete", company_path(company), method: "delete" %></td>
