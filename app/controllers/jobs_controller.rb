@@ -17,6 +17,8 @@ class JobsController < ApplicationController
  end
 
   def new
+    @categories = Category.all
+    @companies = Company.all
     @job = Job.new()
   end
 
@@ -38,6 +40,8 @@ class JobsController < ApplicationController
   end
 
   def edit
+    @categories = Category.all
+    @companies = Company.all
   end
 
   def update
