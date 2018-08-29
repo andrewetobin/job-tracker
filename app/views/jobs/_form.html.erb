@@ -2,11 +2,11 @@
   <%= form_for [@job] do |f| %>
     <%= f.label :title %>
     <%= f.text_field :title %>
-
+    
     <%= f.label :category_id %>
-    <%= f.collection_select(:category_id, Category.all, :id, :title) %>
+    <%= f.collection_select(:category_id,   @categories, :id, :title) %>
     <%= f.label :company_id %>
-    <%= f.collection_select(:company_id, Company.all, :id, :name) %>
+    <%= f.collection_select(:company_id, @companies, :id, :name) %>
 
     <%= f.label :description %>
     <%= f.text_field :description %>
