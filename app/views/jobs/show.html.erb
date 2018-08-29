@@ -20,8 +20,8 @@ Notes: <%= render partial: "comment-form" %>
 
 <% @comments.each do |comment| %>
   <ul>
-    <li><%= comment.body %></li>
-    <li><%= comment.created_at %></li>
-    <li><%= comment.updated_at %></li>
+    <p><%= comment.body %><p>
+    <li>Created at: <%= comment.created_at.in_time_zone("Mountain Time (US & Canada)").strftime('%m-%d-%Y %I:%M:%S') %></li>
+    <li>Updated at: <%= comment.updated_at.in_time_zone("Mountain Time (US & Canada)").strftime('%m-%d-%Y %I:%M:%S') %></li>
   </ul>
 <% end %>

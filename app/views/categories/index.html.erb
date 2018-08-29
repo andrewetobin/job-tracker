@@ -1,12 +1,12 @@
 <h3>Job Categories</h3>
 
-<a href="/categories/new">Create New Category</a>
+<%= link_to "Create New Category", new_category_path %>
 
 <ul>
   <% @categories.each do |category| %>
   <li class=category_<%= category.id %>>
     <%= link_to category.title, category_path(category) %>:
-    <%= category.jobs.count %> Jobs
+    <%= "#{category.jobs.count} Jobs"%>
     <%= link_to "Edit", edit_category_path(category) %>
     <%= link_to "Delete", category_path(category), method: "delete" %>
   </li>
