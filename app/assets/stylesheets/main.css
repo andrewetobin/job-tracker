@@ -66,3 +66,7 @@ nav li:hover {
 .middle-section a {
   color: #5B5B5B;
 }
+.middle-section h5 {
+  font-size: 30px;
+  padding: 0px 0px 20px;
+}

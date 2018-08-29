@@ -14,6 +14,6 @@ describe "User sees one category" do
     expect(page).to have_content("ESPN")
     expect(page).to have_content("Developer")
     expect(page).to have_content("New York City")
-    expect(page).to have_content("Interest: #{job_1.level_of_interest}")
+    expect(page).to have_content("#{job_1.level_of_interest}")
   end
 end

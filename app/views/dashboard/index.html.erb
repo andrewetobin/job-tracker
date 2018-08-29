@@ -1,10 +1,26 @@
 <section class="middle-section">
-  <h4>Jobs By Interest</h4>
-  <% @count_by_level_of_interest.each do |loi, count| %>
-  <p><%= loi %> has <%= count %> Jobs</p>
-  <% end %>
+  <h3>Jobs By Interest</h3>
+  <table class="table table-sm table-dark">
+    <thead>
+      <tr>
+        <th scope="col">Interest Level</th>
+        <th scope="col"># of Jobs</th>
+      </tr>
+    </thead>
 
-  <h4>Jobs By Location</h4>
+    <% @count_by_level_of_interest.each do |loi, count| %>
+    <tbody>
+      <tr>
+        <th><%= loi %></th>
+        <td><%= count %></td>
+      </tr>
+    </tbody>
+    <% end  %>
+  </table>
+
+
+
+  <h3>Jobs By Location</h3>
   <table class="table table-hover">
     <thead>
       <tr>
@@ -22,8 +38,8 @@
       <% end %>
   </table>
 
-  <h4>Top Companies by Interest</h4>
+  <h3>Top Companies by Interest</h3>
   <% @top_three_by_average_level_of_interest.each do |company| %>
-  <p><%= company.name %>  has an average  <%= company.avg_level_of_interest %> rating </p>
+  <p><%= company.name %>  has an average  <%= company.avg_level_of_interest.to_f.round(2) %> rating </p>
   <% end %>
 </section>

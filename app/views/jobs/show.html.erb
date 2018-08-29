@@ -16,13 +16,23 @@
 
   Company: <%= link_to @job.company.name, company_path(@job.company) %>
 
-  Notes: <%= render partial: "comment-form" %>
+   <%= render partial: "comment-form" %>
 
+  <table class="table table-sm">
+    <thead>
+      <tr>
+        <th scope="col">Comment</th>
+        <th scope="col">Created At</th>
+      </tr>
+    </thead>
 
-  <% @comments.each do |comment| %>
-    <ul>
-      <li><%= comment.body %></li>
-      <li>Created at: <%= comment.created_at.in_time_zone("Mountain Time (US & Canada)").strftime('%m-%d-%Y %I:%M:%S') %></li>
-    </ul>
-  <% end %>
+        <% @comments.each do |comment| %>
+        <tbody>
+          <tr>
+            <th><%= comment.body %></th>
+            <td><%= comment.created_at.in_time_zone("Mountain Time (US & Canada)").strftime('%m-%d-%Y %I:%M:%S') %></td>
+        <% end %>
+      </tr>
+    </tbody>
+  </table>
 </section>
