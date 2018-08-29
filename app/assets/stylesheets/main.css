@@ -58,3 +58,11 @@ nav li:hover {
   font-size: 20px;
   padding: 0px 0px 40px;
 }
+.middle-section p {
+
+  font-size: 20px;
+  padding: 0px 0px 30px;
+}
+.middle-section a {
+  color: #5B5B5B;
+}
