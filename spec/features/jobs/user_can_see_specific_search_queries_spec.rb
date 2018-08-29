@@ -10,6 +10,7 @@ describe 'user visits /jobs' do
     job_4 = company.jobs.create!(title: 'Beer Guy', level_of_interest: 73, city: 'Chicago', category_id: category.id)
 
     visit jobs_path(location: 'Denver')
+
     expect(page).to have_content(job_1.title)
     expect(page).to have_content(job_1.level_of_interest)
     expect(page).to have_content(job_1.city)

@@ -1,4 +1,6 @@
 class JobsController < ApplicationController
+  before_action :set_job, only: [:show, :update, :edit, :destroy]
+
   def index
    if params[:location]
      @jobs = Job.location_params(params)
@@ -31,17 +33,14 @@ class JobsController < ApplicationController
   end
 
   def show
-    @job = Job.find(params[:id])
     @comment = @job.comments.new
     @comments = @job.comments.all
   end
 
   def edit
-    @job = Job.find(params[:id])
   end
 
   def update
-    @job = Job.find(params[:id])
     @company = @job.company
     @job.update(job_params)
     if @job.save
@@ -53,9 +52,8 @@ class JobsController < ApplicationController
   end
 
   def destroy
-    job = Job.find(params[:id])
-    job.comments.destroy_all
-    job.destroy
+    @job.comments.destroy_all
+    @job.destroy
     redirect_to jobs_path
   end
 
@@ -73,5 +71,9 @@ class JobsController < ApplicationController
         @jobs = Job.city_sort
         @header = 'Jobs sorted by City'
       end
+    end
+
+    def set_job
+      @job = Job.find(params[:id])
     end
 end
